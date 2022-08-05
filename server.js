@@ -20,3 +20,13 @@ app.use('/api/v1/employees', employeeRoutes)
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`);
 });
+// error handling
+
+app.all('*', (req, res) => {
+  const err = new Error(`Requested URL ${req.path} not found!`);
+  res.status(404).json({
+    success: 0,
+    message: err.message,
+    stack: err
+  })
+})
