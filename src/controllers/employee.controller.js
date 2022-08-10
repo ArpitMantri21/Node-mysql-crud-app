@@ -1,5 +1,8 @@
 'use strict';
+/* Importing the employee.model.js file. */
 const Employee = require('../models/employee.model');
+/* This is a function that is being exported to the employee.controller.js file. for finding all 
+the employee */
 exports.findAll = async (req, res) => {
   try {
     const EmpFindAll = await Employee.findAll();
@@ -15,6 +18,8 @@ exports.findAll = async (req, res) => {
   }
 };
 
+/* This is a function that is being exported to the employee.controller.js file. for creating a new
+employee. */
 exports.create = async (req, res) => {
   try {
     const new_employee = new Employee(req.body);
@@ -36,6 +41,8 @@ exports.create = async (req, res) => {
   }
 };
 
+/* This is a function that is being exported to the employee.controller.js file. for finding a 
+employee by id. */
 exports.findById = async (req, res) => {
   try {
     const EmpFindById = await Employee.findById(req.params.id);
@@ -51,6 +58,8 @@ exports.findById = async (req, res) => {
   }
 };
 
+/* This is a function that is being exported to the employee.controller.js file. for updating a 
+employee by id. */
 exports.update = async (req, res) => {
   try {
     if (Object.keys(req.body).length === 0) {
@@ -70,6 +79,8 @@ exports.update = async (req, res) => {
   }
 };
 
+/* A function that is being exported to the employee.controller.js file. for updating the specific keys for
+a employee by id. */
 exports.patch = async (req, res) => {
   try {
       const EmpPatch = await Employee.patch(req.params.id, req.body);
@@ -85,6 +96,8 @@ exports.patch = async (req, res) => {
   }
 };
 
+/* This is a function that is being exported to the employee.controller.js file. for deleting a 
+employee by id. */
 exports.delete = async (req, res) => {
   try {
     const EmpDelete = await Employee.delete(req.params.id);

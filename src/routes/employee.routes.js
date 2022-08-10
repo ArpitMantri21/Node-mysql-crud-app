@@ -1,16 +1,26 @@
+/* Importing the express module. */
 const express = require('express')
+/* Creating a router object. */
 const router = express.Router()
+/* Importing the employee.controller.js file. */
 const employeeController = require('../controllers/employee.controller');
-// Retrieve all employees
+/* Creating a route for the `findAll` function in the `employeeController.js` file. for retrieving
+all the employees */
 router.get('/', employeeController.findAll);
-// Create a new employee
+/* Creating a route for the `create` function in the `employeeController.js` file. for creating a new
+employee. */
 router.post('/', employeeController.create);
-// Retrieve a single employee with id
+/* Creating a route for the `findById` function in the `employeeController.js` file. for retrieving
+a single employee with id. */
 router.get('/:id', employeeController.findById);
-// Update a employee with id
+/* Creating a route for the `update` function in the `employeeController.js` file. for updating a
+single employee with id. */
 router.put('/:id', employeeController.update);
-// Update a employee with id partially
+/* A route for the `patch` function in the `employeeController.js` file. for updating a
+single employee partially with id. */
 router.patch('/:id', employeeController.patch);
-// Delete a employee with id
+/* A route for the `delete` function in the `employeeController.js` file. for deleting the
+employee with the id. */
 router.delete('/:id', employeeController.delete);
+/* Exporting the router object. */
 module.exports = router
